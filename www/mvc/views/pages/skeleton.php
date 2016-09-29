@@ -20,10 +20,14 @@
 
 
     <!-- Custom styles for this template -->
+    <!-- SPECIFIC LIBRARIES -->
+<?php foreach ($cssLibraries['dist'] as $value) { ?>
+    <script src="dist/css/<?= $value ?>.css"></script>
+<?php } ?>
     <link href="assets/css/main.css" rel="stylesheet">
-    <?php if(file_exists("assets/css/$page_include.css")) { ?>
-      <link href="assets/css/<?= $page_include ?>.css" rel="stylesheet">
-    <?php } ?>
+<?php foreach ($cssLibraries['assets'] as $value) { ?>
+    <script src="assets/css/<?= $value ?>.css"></script>
+<?php } ?>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -78,7 +82,7 @@
 <?php } ?>
     <!-- SPECIFIC LIBRARIES -->
 <?php foreach ($jsLibraries['dist'] as $value) { ?>
-    <script src="assets/js/<?= $value ?>.js"></script>
+    <script src="dist/js/<?= $value ?>.js"></script>
 <?php } ?>
 <?php foreach ($jsLibraries['assets'] as $value) { ?>
     <script src="assets/js/<?= $value ?>.js"></script>

@@ -18,10 +18,8 @@
 
   include_once("mvc/models/sql_connection.php");
 
-  $jsLibraries = array(
-                    "dist"=>array(),
-                    "assets"=>array()
-                  );
+  $jsLibraries = array("dist"=>array(),"assets"=>array());
+  $cssLibraries = array("dist"=>array(),"assets"=>array());
 
 
   // Retrieve the parameter action which is used to navigate in the MVC
