@@ -12,10 +12,10 @@ docker-compose up -d
 ```
 
 ##### For the web application
-> http://<yourdockeraddress>:80
+> http://`yourdockeraddress`:80
 
 ##### For the phpmyadmin to play directly with your data
-> http://<yourdockeraddress>:8080
+> http://`yourdockeraddress`:8080
 
 ```
 Root User: root / arootpassword
