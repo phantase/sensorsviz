@@ -1,7 +1,9 @@
 <?php
 
-$jsLibraries["dist"][] = "circularHeatChart.js";
-$jsLibraries["assets"][] = "circularheat.js";
+$jsLibraries["dist"][] = "d3.v3.min";
+$jsLibraries["dist"][] = "circularHeatChart";
+$jsLibraries["assets"][] = "circularheat";
+$cssLibraries["assets"][] = "circularheat";
 
 try {
 
@@ -15,10 +17,11 @@ try {
   $next['weeknumber'] = (($weeknumber + 1)<53)?($weeknumber + 1):1;
   $next['year'] = (($weeknumber + 1)<53)?$year:$year+1;
 
-  $millisdate = strtotime($year.'W'.$weeknumber);
-  $date = date('Y-m-d 00:00:00',$millisdate);
+  $tsdate = strtotime($year.'W'.$weeknumber);
+  $date = date('Y-m-d 00:00:00',$tsdate);
 
-  $data = getWeeklyValues($date,20,"temperature");
+  $phpdata = getWeeklyValues($date,20,"temperature");
+
 } catch(Exception $e) {
   $include_page = "error";
 }

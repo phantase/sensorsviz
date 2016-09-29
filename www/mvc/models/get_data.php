@@ -23,6 +23,6 @@ function getWeeklyValues($date,$sensorid,$sensortype)
 		throw new Exception("Error Processing Request: ".$errorInfo[2]);
 	}
 
-	return $req->fetchAll();
+	return $req->fetchAll(PDO::FETCH_ASSOC);
 
 }

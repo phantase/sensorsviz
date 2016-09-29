@@ -22,11 +22,11 @@
     <!-- Custom styles for this template -->
     <!-- SPECIFIC LIBRARIES -->
 <?php foreach ($cssLibraries['dist'] as $value) { ?>
-    <script src="dist/css/<?= $value ?>.css"></script>
+    <link href="dist/css/<?= $value ?>.css" rel="stylesheet">
 <?php } ?>
     <link href="assets/css/main.css" rel="stylesheet">
 <?php foreach ($cssLibraries['assets'] as $value) { ?>
-    <script src="assets/css/<?= $value ?>.css"></script>
+    <link href="assets/css/<?= $value ?>.css" rel="stylesheet">
 <?php } ?>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -83,6 +83,11 @@
     <!-- SPECIFIC LIBRARIES -->
 <?php foreach ($jsLibraries['dist'] as $value) { ?>
     <script src="dist/js/<?= $value ?>.js"></script>
+<?php } ?>
+<?php if(isset($phpdata)) { ?>
+  <script>
+    var phpjsondata = <?= json_encode($phpdata) ?>;
+  </script>
 <?php } ?>
 <?php foreach ($jsLibraries['assets'] as $value) { ?>
     <script src="assets/js/<?= $value ?>.js"></script>
