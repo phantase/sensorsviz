@@ -11,6 +11,10 @@ try {
   $weeknumber = $weeknumber?$weeknumber:date('W')-1;
   $year = filter_input(INPUT_GET, 'year');
   $year = $year?$year:date('Y');
+  $sensortype = filter_input(INPUT_GET, 'sensortype');
+  $sensortype = $sensortype?$sensortype:"temperature";
+  $sensorid = filter_input(INPUT_GET, 'sensorid');
+  $sensorid = $sensorid?$sensorid:20;
 
   $prev['weeknumber'] = (($weeknumber - 1)>0)?($weeknumber - 1):52;
   $prev['year'] = (($weeknumber - 1)>0)?$year:$year-1;
@@ -20,7 +24,7 @@ try {
   $tsdate = strtotime($year.'W'.$weeknumber);
   $date = date('Y-m-d 00:00:00',$tsdate);
 
-  $data = getWeeklyValues($date,20,"temperature");
+  $data = getWeeklyValues($date,$sensorid,$sensortype);
 
   $phpdata = array();
 

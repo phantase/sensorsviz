@@ -4,3 +4,4 @@ RewriteEngine On
 RewriteRule ^home$                              index.php?action=home [L]
 RewriteRule ^circular$                          index.php?action=circular [L]
 RewriteRule ^circular/([0-9]+)/([0-9]+)$        index.php?action=circular&year=$1&weeknumber=$2 [L]
+RewriteRule ^circular/([0-9]+)/(temperature|humidity|luminosity)/([0-9]+)/([0-9]+)$        index.php?action=circular&year=$3&weeknumber=$4&sensorid=$1&sensortype=$2 [L]
