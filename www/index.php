@@ -30,7 +30,7 @@
   $action = isset($_GET['action']) ? $_GET['action'] : "home";
 
   switch($action) {
-    case "circularheat":
+    case "circular":
       $include_page = $action;
       break;
     default:

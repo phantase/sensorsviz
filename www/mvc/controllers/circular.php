@@ -2,8 +2,8 @@
 
 $jsLibraries["dist"][] = "d3.v3.min";
 $jsLibraries["dist"][] = "circularHeatChart";
-$jsLibraries["assets"][] = "circularheat";
-$cssLibraries["assets"][] = "circularheat";
+$jsLibraries["assets"][] = "circular";
+$cssLibraries["assets"][] = "circular";
 
 try {
 

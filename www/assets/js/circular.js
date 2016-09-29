@@ -12,7 +12,7 @@ chart.accessor(function(d) {
     return null;
 });
 
-d3.select('#temperaturechart')
+d3.select('#circular')
     .selectAll('svg')
     .data([phpjsondata])
     .enter()
@@ -20,7 +20,7 @@ d3.select('#temperaturechart')
     .call(chart);
 
 /* Add a mouseover event */
-d3.selectAll("#temperaturechart path").on('mouseover', function() {
+d3.selectAll("#circular path").on('mouseover', function() {
     var d = d3.select(this).data()[0];
     if( d.average ){
       d3.select("#info").text('The temperature on ' + d.rounded_date + ' was ' + d.average + '°C' );
@@ -28,6 +28,6 @@ d3.selectAll("#temperaturechart path").on('mouseover', function() {
       d3.select("#info").text('We don\'t have temperature on ' + d.rounded_date);
     }
 });
-d3.selectAll("#temperaturechart svg").on('mouseout', function() {
+d3.selectAll("#circular svg").on('mouseout', function() {
     d3.select("#info").text('Hover the graph to view the value.');
 });

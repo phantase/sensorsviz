@@ -52,7 +52,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li <?php if($include_page=="home"){ ?>class="active"<?php } ?>><a href="home">Home</a></li>
-            <li <?php if($include_page=="circularheat"){ ?>class="active"<?php } ?>><a href="circularheat">Circular heat</a></li>
+            <li <?php if($include_page=="circular"){ ?>class="active"<?php } ?>><a href="circular">Circular</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
