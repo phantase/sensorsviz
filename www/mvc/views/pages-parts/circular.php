@@ -1,6 +1,6 @@
       <div class="default_content">
         <h1>Sensor #<?= $sensorid ?>: <?= $sensortype ?> for week <?= $weeknumber ?> of <?= $year ?></h1>
-        <p class="lead">
+        <p>
           Available sensors:
 <?php foreach ($sensors as $key => $value) {
   if( $value['sensorid'] != $tmpsensorid ){
