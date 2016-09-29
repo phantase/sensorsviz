@@ -1,5 +1,21 @@
 <?php
 
+function getAvailableSensorsAndTypes()
+{
+	global $bdd;
+
+	$req = $bdd->prepare("SELECT sensorid, type FROM sensors_avg_data GROUP BY sensorid, type ORDER BY sensorid ASC, type ASC");
+	$req->execute();
+
+	$errorInfo = $req->errorInfo();
+
+	if( $errorInfo[0] != "00000" ){
+		throw new Exception("Error Processing Request: ".$errorInfo[2]);
+	}
+
+	return $req->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function getWeeklyValues($date,$sensorid,$sensortype)
 {
 	global $bdd;

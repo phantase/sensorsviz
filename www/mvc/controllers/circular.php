@@ -7,6 +7,8 @@ $cssLibraries["assets"][] = "circular";
 
 try {
 
+  $sensors = getAvailableSensorsAndTypes();
+
   $weeknumber = filter_input(INPUT_GET, 'weeknumber');
   $weeknumber = $weeknumber?$weeknumber:date('W')-1;
   $year = filter_input(INPUT_GET, 'year');

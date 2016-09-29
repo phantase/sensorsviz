@@ -23,9 +23,9 @@ d3.select('#circular')
 d3.selectAll("#circular path").on('mouseover', function() {
     var d = d3.select(this).data()[0];
     if( d.average ){
-      d3.select("#info").text('The temperature on ' + d.rounded_date + ' was ' + d.average + '°C' );
+      d3.select("#info").text('On ' + d.rounded_date + ' the value was ' + d.average );
     } else {
-      d3.select("#info").text('We don\'t have temperature on ' + d.rounded_date);
+      d3.select("#info").text('On ' + d.rounded_date + ' we don\'t have the value');
     }
 });
 d3.selectAll("#circular svg").on('mouseout', function() {
