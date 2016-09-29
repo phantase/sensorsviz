@@ -21,6 +21,10 @@
   $jsLibraries = array("dist"=>array(),"assets"=>array());
   $cssLibraries = array("dist"=>array(),"assets"=>array());
 
+  $retropath = "";
+  for($i=0;$i<count(split("/",$_SERVER['REDIRECT_URL']))-2;$i++){
+    $retropath .= "../";
+  }
 
   // Retrieve the parameter action which is used to navigate in the MVC
   $action = isset($_GET['action']) ? $_GET['action'] : "home";
