@@ -4,7 +4,7 @@ function getWeeklyValues($date,$sensorid,$sensortype)
 {
 	global $bdd;
 
-	$req = $bdd->prepare("SELECT sensorid,average,min,max,rounded_date
+	$req = $bdd->prepare("SELECT average,min,max,rounded_date
 												FROM sensors_avg_data
 												WHERE sensorid = :sensorid
 												AND type = :sensortype

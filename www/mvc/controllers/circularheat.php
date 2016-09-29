@@ -7,9 +7,9 @@ $cssLibraries["assets"][] = "circularheat";
 
 try {
 
-  $weeknumber = filter_input(INPUT_GET, 'weeknumber', FILTER_VALIDATE_INT);
-  $weeknumber = $weeknumber?$weeknumber<10?'0'.$weeknumber:$weeknumber:date('W')-1;
-  $year = filter_input(INPUT_GET, 'year', FILTER_VALIDATE_INT);
+  $weeknumber = filter_input(INPUT_GET, 'weeknumber');
+  $weeknumber = $weeknumber?$weeknumber:date('W')-1;
+  $year = filter_input(INPUT_GET, 'year');
   $year = $year?$year:date('Y');
 
   $prev['weeknumber'] = (($weeknumber - 1)>0)?($weeknumber - 1):52;
@@ -20,7 +20,29 @@ try {
   $tsdate = strtotime($year.'W'.$weeknumber);
   $date = date('Y-m-d 00:00:00',$tsdate);
 
-  $phpdata = getWeeklyValues($date,20,"temperature");
+  $data = getWeeklyValues($date,20,"temperature");
+
+  $phpdata = array();
+
+  $timestamp = $tsdate;
+  $cpt = 0;
+  foreach ($data as $key => $value) {
+    while($timestamp < strtotime($value['rounded_date'])){
+      $cpt++;
+      $phpdata[] = array("average"=>null,
+                        "min"=>null,
+                        "max"=>null,
+                        "rounded_date"=>date('Y-m-d H:00:00',$timestamp));
+      $timestamp += 3600;
+      if( $cpt == 168 ){
+        break;
+      }
+    }
+    $timestamp = strtotime($value['rounded_date']) + 3600;
+    if($cpt == 168){ break; }
+    $cpt++;
+    $phpdata[] = $value;
+  }
 
 } catch(Exception $e) {
   $include_page = "error";

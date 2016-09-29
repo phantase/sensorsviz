@@ -23,7 +23,7 @@ d3.select('#temperaturechart')
 d3.selectAll("#temperaturechart path").on('mouseover', function() {
     var d = d3.select(this).data()[0];
     if( d.average ){
-      d3.select("#info").text('The temperature on ' + d.rouded_date + ' was ' + d.average + '°C' );
+      d3.select("#info").text('The temperature on ' + d.rounded_date + ' was ' + d.average + '°C' );
     } else {
       d3.select("#info").text('We don\'t have temperature on ' + d.rounded_date);
     }
