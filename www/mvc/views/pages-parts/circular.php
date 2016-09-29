@@ -21,6 +21,10 @@
 ?>
             )
         </p>
+        <p>
+          <a href="/circular/<?= $sensorid ?>/<?= $sensortype ?>/<?= $prev['year'] ?>/<?= $prev['weeknumber'] ?>">Previous week</a>
+          <a href="/circular/<?= $sensorid ?>/<?= $sensortype ?>/<?= $next['year'] ?>/<?= $next['weeknumber'] ?>">Next week</a>
+        </p>
         <p id="circular"></p>
         <p id="info"></p>
       </div>

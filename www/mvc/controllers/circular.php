@@ -19,8 +19,10 @@ try {
   $sensorid = $sensorid?$sensorid:20;
 
   $prev['weeknumber'] = (($weeknumber - 1)>0)?($weeknumber - 1):52;
+  $prev['weeknumber'] = $prev['weeknumber']>10?$prev['weeknumber']:'0'.$prev['weeknumber'];
   $prev['year'] = (($weeknumber - 1)>0)?$year:$year-1;
   $next['weeknumber'] = (($weeknumber + 1)<53)?($weeknumber + 1):1;
+  $next['weeknumber'] = $next['weeknumber']>10?$next['weeknumber']:'0'.$next['weeknumber'];
   $next['year'] = (($weeknumber + 1)<53)?$year:$year+1;
 
   $tsdate = strtotime($year.'W'.$weeknumber);
